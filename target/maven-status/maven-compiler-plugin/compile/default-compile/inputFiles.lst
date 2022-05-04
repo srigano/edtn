@@ -1,0 +1,6 @@
+/usr/hlrz/edtn/src/main/java/fr/ca/cat/edtn/repository/EdtnRepository.java
+/usr/hlrz/edtn/src/main/java/fr/ca/cat/edtn/rest/client/DonneesFinancieres.java
+/usr/hlrz/edtn/src/main/java/fr/ca/cat/edtn/rest/client/DonneesFinancieresRessource.java
+/usr/hlrz/edtn/src/main/java/fr/ca/cat/edtn/rest/client/DonneesFinancieresService.java
+/usr/hlrz/edtn/src/main/java/fr/ca/cat/edtn/model/Edtn.java
+/usr/hlrz/edtn/src/main/java/fr/ca/cat/edtn/resource/EdtnResource.java

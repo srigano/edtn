@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+	<!-- VERSION DU FICHIER SETTINGS 1.0  -->
+
+	<!-- FONCTIONNEMENT EN CI -->
+	<localRepository>.m2/repository</localRepository>
+	<interactiveMode>false</interactiveMode>
+
+	<!-- AUTHENTIFICATIONS -->
+	<servers>
+
+		<!-- Accès en lecture aux dependances globales -->
+		<server>
+			<id>cats-maven-virtual</id>
+			<username>${CATS_MAVEN_ARTIFACTORY_USER}</username>
+			<password>${CATS_MAVEN_ARTIFACTORY_TOKEN}</password>
+		</server>
+
+		<!-- Accès en écriture a l'espace partagé -->
+		<server>
+			<id>cats-shared-maven-staging-intranet-write</id>
+			<username>${P_MAVEN_ARTIFACTORY_USER}</username>
+			<password>${P_MAVEN_ARTIFACTORY_TOKEN}</password>
+		</server>
+		<server>
+			<id>cats-shared-maven-stable-intranet-write</id>
+			<username>${P_MAVEN_ARTIFACTORY_USER}</username>
+			<password>${P_MAVEN_ARTIFACTORY_TOKEN}</password>
+		</server>
+
+		<!-- Accès en lecture a l'espace du produit en cours (1 seul à la fois) -->
+		<server>
+			<id>cats-${P_CODE_PRODUIT}-maven-staging-intranet-read</id>
+			<username>${P_MAVEN_ARTIFACTORY_USER}</username>
+			<password>${P_MAVEN_ARTIFACTORY_TOKEN}</password>
+		</server>
+		<server>
+			<id>cats-${P_CODE_PRODUIT}-maven-stable-intranet-read</id>
+			<username>${P_MAVEN_ARTIFACTORY_USER}</username>
+			<password>${P_MAVEN_ARTIFACTORY_TOKEN}</password>
+		</server>
+
+		<!-- Accès en écriture a l'espace du produit en cours (1 seul à la fois) -->
+		<server>
+			<id>cats-${P_CODE_PRODUIT}-maven-staging-intranet-write</id>
+			<username>${P_MAVEN_ARTIFACTORY_USER}</username>
+			<password>${P_MAVEN_ARTIFACTORY_TOKEN}</password>
+		</server>
+		<server>
+			<id>cats-${P_CODE_PRODUIT}-maven-stable-intranet-write</id>
+			<username>${P_MAVEN_ARTIFACTORY_USER}</username>
+			<password>${P_MAVEN_ARTIFACTORY_TOKEN}</password>
+		</server>
+	</servers>
+
+	<mirrors>
+		<mirror>
+			<id>cats-maven-virtual</id>
+			<mirrorOf>central,apache.snapshots</mirrorOf>
+			<url>https://registry.saas.cagip.group.gca/cats-maven-virtual</url>
+		</mirror>
+	</mirrors>
+
+	<profiles>
+		<profile>
+			<id>artifactory</id>
+
+			<repositories>
+				<repository>
+					<id>cats-maven-virtual</id>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>warn</checksumPolicy>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>warn</checksumPolicy>
+					</snapshots>
+					<url>https://registry.saas.cagip.group.gca/cats-maven-virtual</url>
+				</repository>
+			</repositories>
+
+			<pluginRepositories>
+				<pluginRepository>
+					<id>cats-maven-virtual</id>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>warn</checksumPolicy>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>warn</checksumPolicy>
+					</snapshots>
+					<url>https://registry.saas.cagip.group.gca/cats-maven-virtual</url>
+				</pluginRepository>
+
+			</pluginRepositories>
+		</profile>
+	</profiles>
+
+	<activeProfiles>
+		<activeProfile>artifactory</activeProfile>
+	</activeProfiles>
+
+</settings>

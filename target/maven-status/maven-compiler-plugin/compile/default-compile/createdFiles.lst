@@ -1,0 +1,4 @@
+META-INF/panache-archive.marker
+fr/ca/cat/edtn/resource/EdtnResource.class
+fr/ca/cat/edtn/model/Edtn.class
+fr/ca/cat/edtn/repository/EdtnRepository.class
